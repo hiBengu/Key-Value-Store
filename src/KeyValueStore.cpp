@@ -242,6 +242,7 @@ int KeyValueStore::hashString(std::string str) {
 void KeyValueStore::readMap(int i) {
   std::string str = "";
   bool key = true;
+  int mapSize = 0;
 
   char ch;
 
@@ -259,10 +260,13 @@ void KeyValueStore::readMap(int i) {
         key = false;
       } else {
         std::cout << str << std::endl;
+        mapSize++;
         key = true;
         str = "";
       }
     }
   }
+  std::cout << "################" << std::endl;
+  std::cout << "\nMap Size: " << mapSize << "\n" << std::endl;
   fclose(file);
 }

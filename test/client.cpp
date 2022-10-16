@@ -1,4 +1,6 @@
 #include "IKeyValueStore.h"
+
+#include <chrono>
 #include <iostream>
 #include <sstream>
 #include <string.h>
@@ -40,9 +42,9 @@ void handleInput(IKeyValueStore *kvStore, std::string input) {
     std::cout << "Too many arguments!" << std::endl;
     return;
   }
-
+  auto t_start = std::chrono::high_resolution_clock::now();
   if (inputs[0] == "GET") {
-    std::cout << kvStore->get(inputs[1]) << std::endl;
+    std::cout << "Return Value: " << kvStore->get(inputs[1]) << std::endl;
   } else if (inputs[0] == "PUT") {
     std::cout << kvStore->put(inputs[1], inputs[2]) << std::endl;
   } else if (inputs[0] == "DELETE") {
@@ -66,6 +68,10 @@ void handleInput(IKeyValueStore *kvStore, std::string input) {
   } else {
     std::cout << "Wrong Input!" << std::endl;
   }
+  auto t_end = std::chrono::high_resolution_clock::now();
+  double elapsed_time_ms =
+      std::chrono::duration<double, std::milli>(t_end - t_start).count();
+  std::cout << "Execution time: " << elapsed_time_ms << "\n" << std::endl;
 }
 
 /*
