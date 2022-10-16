@@ -1,7 +1,10 @@
 #include "KeyValueStore.h"
 
+#include <filesystem>
 #include <iostream>
 #include <unistd.h>
+
+KeyValueStore::KeyValueStore() { std::filesystem::create_directory("db"); }
 
 /*
   Add given key value pair to inMemoryStore.

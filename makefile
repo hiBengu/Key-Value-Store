@@ -14,6 +14,7 @@ $(TEST)/client: $(TEST)/client.cpp $(LIB)/lib$(LIB_NAME).so
 	clang-format -i */*.cpp */*.h
 
 $(LIB)/lib$(LIB_NAME).so: $(SRC)/KeyValueStore.cpp $(SRC)/IKeyValueStore.cpp
+	mkdir -p $(LIB)
 	$(CXX) $(CXXFLAGS) $^ -fPIC -shared -Wl,-soname,lib$(LIB_NAME).so -o $@
 
 .PHONY: clean run

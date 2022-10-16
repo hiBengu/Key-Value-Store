@@ -16,6 +16,8 @@ public:
   std::list<std::string> lruList;
   int inMemoryAmount = 0;
 
+  KeyValueStore();
+
   std::string get(std::string);
   std::string getDB(std::string);
   int put(std::string, std::string);
