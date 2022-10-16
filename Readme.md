@@ -7,8 +7,6 @@ A key-value store prototype as a library implementation.
 Compile the code inside the directory
 
 ```bash
-mkdir lib
-mkdir db
 make
 ```
 
