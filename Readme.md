@@ -13,8 +13,7 @@ make
 Start the client application with the following command
 
 ```bash
-sudo chmod 777 start_client.sh
-./start_client.sh
+./test_client
 ```
 
 Then you can use commands from terminal.
@@ -31,4 +30,10 @@ BATCH $batch_number
 
 # Reads the desired saved file
 READMAP $num
+```
+
+To delete saved informations and unncessary files
+
+```bash
+make clean
 ```
